@@ -1,0 +1,64 @@
+.wrapper {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+body{
+   text-align: center;
+   margin: 0;
+   height: 100%;
+   background: url("../img/36156929-funny-cat-wallpaper.jpg")  no-repeat center center fixed;
+   background-size: cover;
+}
+
+.header {
+    font-family: "Verdana" , serif;
+    margin-left: 20%;
+    margin-top: 15px;
+    text-align: center;
+    width: 60%;
+    border: 1px solid ;
+    border: #DCDCDC;
+    border-radius: 10px;
+    background: rgba(255, 255, 230, 0.3);
+    margin-bottom: 50px;
+}
+
+.form-signin {
+    font-family: "Verdana" , serif; 
+    max-width: 420px;
+    padding: 30px 38px 6px;
+    margin: 0 auto;
+    background: rgba(255, 255, 230, 0.3);
+    border: 3px;
+    border-radius: 10px;
+
+}
+
+.form-signin-heading {
+    text-align:center;
+    margin-bottom: 30px;
+}
+
+.form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+}
+
+input[type="text"] {
+    margin-bottom: 20px;
+}
+
+input[type="password"] {
+    margin-bottom: 20px;
+}
+
+.swap{
+    text-align:center;
+    margin-top: 20px;
+    font-size: 15px;
+
+}
+
