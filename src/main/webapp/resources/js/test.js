@@ -1,0 +1,1 @@
+alert("NU DAROVA KABAN4IK");
