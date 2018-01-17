@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Main</title>
+    <title>Welcome Security with Spring Boot!</title>
 </head>
 <body>
-<h1>Main page</h1>
-<a href="index">logout</a>
+<h1 style="color:blue"> Hello! This is Welcome Page!</h1>
+
+<a style="color:blue" href="/index">Go to Home Page!</a>
+<br/>
+
+<form action="/logout" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
 </body>
 </html>

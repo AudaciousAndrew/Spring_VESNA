@@ -13,7 +13,7 @@ public class UserController {
 
     @RequestMapping("/usersave")
     public String process(){
-        repository.save(new User("AudaciousAndrew" , "123pashaloh"));
+        repository.save(new User("AudaciousAndrew" , "123pashaloh" , true));
         return "User added";
     }
 

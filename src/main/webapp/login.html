@@ -14,23 +14,23 @@
 <body>
 
 <div class="header">
-        <h2>Melnik Andrei, Semenov Pavel, P3210 <br> Variant 1034</h2>
-</div>  
+    <h2>Melnik Andrei, Semenov Pavel, P3210 <br> Variant 1034</h2>
+</div>
 
 <div class = "container">
-<div class="wrapper">
-    <form class="form-signin">
-        <h3 class="form-signin-heading">Login</h3>
-        <input type="text" class="form-control" id="username" required="" placeholder="Username"/>
-        <input type="password" class="form-control" id="password" required="" placeholder="Password"/>
-        <button type="submit"  class="btn btn-lg btn-success btn-block" 
-            style="margin-top:20px;">Login</button>
-        <p class="swap">
-            Don't have an account? 
-            <a href="registration.html">Sign Up</a>
-        </p>
-    </form>
-</div>
+    <div class="wrapper">
+        <form action="/login" method="post" class="form-signin">
+            <h3 class="form-signin-heading">Login</h3>
+            <input type="text" class="form-control" name="username" required="" placeholder="Username"/>
+            <input type="password" class="form-control" name="password" required="" placeholder="Password"/>
+            <button type="submit"  class="btn btn-lg btn-success btn-block"
+                    style="margin-top:20px;">Login</button>
+            <p class="swap">
+                Don't have an account?
+                <a href="registration.html">Sign Up</a>
+            </p>
+        </form>
+    </div>
 </div>
 
 </body>

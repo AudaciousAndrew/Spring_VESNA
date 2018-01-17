@@ -1,45 +1,42 @@
 package springjpa.model;
 
+import org.springframework.context.annotation.Primary;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table (name =  "userss")
 public class User implements Serializable {
-    private long id;
-    private String login;
+
+    @Id
+    @Column(name = "username")
+    private String username;
+
+    @Basic
+    @Column(name = "password")
     private String password;
 
-    public User(String login, String password) {
-        this.login = login;
+    @Basic
+    @Column(name = "enabled")
+    private boolean enabled;
+
+    public User(String username, String password, boolean enabled) {
+        this.username = username;
         this.password = password;
+        this.enabled = enabled;
     }
 
     protected User(){}
 
-    @Id
-    @GeneratedValue ( strategy = GenerationType.AUTO)
-    @Column( name = "id")
-    public long getId() {
-        return id;
+    public String getUsername() {
+        return username;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    @Basic
-    @Column(name = "login")
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    @Basic
-    @Column(name = "password")
     public String getPassword() {
         return password;
     }
@@ -48,32 +45,20 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        User user = (User) o;
-
-        if (id != user.id) return false;
-        if (login != null ? !login.equals(user.login) : user.login != null) return false;
-        return password != null ? password.equals(user.password) : user.password == null;
+    public boolean isEnabled() {
+        return enabled;
     }
 
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (login != null ? login.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        return result;
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
+                "username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", enabled=" + enabled +
                 '}';
     }
 }
