@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head lang="en">
+        <meta charset="UTF-8"/>
+        <title>Lab 4</title>
+        <link rel="stylesheet" href="resources/css/index.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+
+<div class="header">
+            <h2>Melnik Andrei, Semenov Pavel, P3210 <br> Variant 1034</h2>
+    </div>
+
+<div class = "container">
+    <div class="wrapper">
+        <form class="form-signin" method="post" action="/register" onsubmit="return doAjax()">
+            <h3 class="form-signin-heading">Sign Up </h3>
+            <input type="text" class="form-control" name="username" id="username" required="" placeholder="Username"/>
+            <input type="password" class="form-control" name="password" id="password" required="" placeholder="Password"/>
+            <input type="submit" value="Sign UP" class="btn btn-lg btn-success btn-block" style="margin-top:20px;"/>
+            <p class="swap">
+                Already have an account?
+                <a href="/login">Log in</a>
+            </p>
+        </form>
+    </div>
+    </div>
+<script type="text/javascript">
+
+    function doAjax() {
+        var inputText = $("#username").val();
+        if (inputText!==null) {
+            return $.ajax({
+                url : 'regcheck',
+                type: 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+                mimeType: 'application/json',
+                data : ({
+                    username: inputText
+                }),
+                success: function (data) {
+                    var result;
+
+                    if (data =="true") {
+                        result='Ты успешно зареган';
+                        return true;
+
+                    }
+                    else if(data == "false") {
+                        result=' Кто-то занял никнейм '+inputText+'. Придумай другой';
+                        alert ("Кто-то занял никнейм "+inputText+" .Придумай другой");
+                        return false;
+                    }
+
+                }
+            });
+        }
+        alert($.ajax);
+    }
+</script>
+</body>
+</html>
