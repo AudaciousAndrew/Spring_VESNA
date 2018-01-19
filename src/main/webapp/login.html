@@ -17,11 +17,21 @@
     <h2>Melnik Andrei, Semenov Pavel, P3210 <br> Variant 1034</h2>
 </div>
 
+<script>
+    window.onload = function () {
+        var info = document.URL+"";
+        if (info.indexOf("error")+1){
+            alert("invalid username or password")
+        }
+
+    }
+</script>
+
 <div class = "container">
     <div class="wrapper">
         <form action="/login" method="post" class="form-signin">
             <h3 class="form-signin-heading">Login</h3>
-            <input type="text" class="form-control" name="username" required="" placeholder="Username"/>
+            <input type="text" class="form-control" name="username" autofocus="" required="" placeholder="Username"/>
             <input type="password" class="form-control" name="password" required="" placeholder="Password"/>
             <input type="submit" value="Login" class="btn btn-lg btn-success btn-block" style="margin-top:20px;"/>
             <p class="swap">

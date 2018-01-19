@@ -36,12 +36,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-                .authorizeRequests().antMatchers("/", "/login" , "/index" , "/registration" , "/users").permitAll()
+                .authorizeRequests().antMatchers(
+                                                    "/",
+                                                    "/login" ,
+                                                    "/registration",
+                                                    "/register" ,
+                                                    "/succ" ,
+                                                    "/fail" ,
+                                                    "/403"
+                                                ).permitAll()
                 .antMatchers("/main").hasRole("USER").anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").defaultSuccessUrl("/main").permitAll()
                 .and()
-                .logout().permitAll();
+                .logout().logoutSuccessUrl("/").permitAll();
         http.exceptionHandling().accessDeniedPage("/403");
     }
 

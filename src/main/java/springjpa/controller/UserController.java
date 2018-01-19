@@ -12,7 +12,6 @@ import springjpa.repo.UserRepo;
 import springjpa.repo.UserRoleRepo;
 
 @RestController
-@RequestMapping("/users")
 public class UserController {
     @Autowired
     UserRepo repository;
@@ -20,44 +19,25 @@ public class UserController {
     @Autowired
     UserRoleRepo roleRepo;
 
-
-    //TODO return success page(change on @Controller annotation) or make thymeleaf with params
-    @RequestMapping( method = RequestMethod.POST)
-    @ResponseStatus(HttpStatus.CREATED)
-    public String register(@RequestParam("username") String username, @RequestParam("password") String password) throws Exception{
+    @RequestMapping(value = "/register" , method = RequestMethod.POST)
+    public ModelAndView register(@RequestParam("username") String username, @RequestParam("password") String password) throws Exception{
         User user;
         UserRole role;
         BCryptPasswordEncoder bCryptPasswordEncoder;
+        ModelAndView modelAndView = new ModelAndView();
         if(repository.findByUsername(username) == null ){
             bCryptPasswordEncoder = new BCryptPasswordEncoder();
             user = new User(username , bCryptPasswordEncoder.encode(password) , true);
             role = new UserRole(username , "ROLE_USER");
             repository.save(user);
             roleRepo.save(role);
-            return "User: "+ username +" successfully registered";
-        } else return "There is user with such username";
-
-    }
-
-    @RequestMapping("/usersave")
-    public String process(){
-        repository.save(new User("AudaciousAndrew" , "123pashaloh" , true));
-        return "User added";
-    }
-
-    @RequestMapping("/userfind")
-    public String find(){
-        String result = "<html>";
-        for(User user : repository.findAll()){
-            result += "<div>" + user.toString() + "</div>";
+            modelAndView.setViewName("redirect:/succ");
+            return modelAndView;
+        } else {
+            modelAndView.setViewName("redirect:/fail");
+            return modelAndView;
         }
-        return result + "</html>";
     }
 
-    @RequestMapping("/userclear")
-    public String delete(){
-        repository.deleteAll();
-        return "Delete users done";
-    }
 
 }
