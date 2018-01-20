@@ -22,6 +22,7 @@ public class PointController {
             @RequestParam("r") double r   ){
         Point point = new Point( x , y , r);
         repository.save(point);
+        System.out.println("xui");
     }
 
     @RequestMapping("/save")
