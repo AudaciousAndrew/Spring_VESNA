@@ -21,7 +21,12 @@
     window.onload = function () {
         var info = document.URL+"";
         if (info.indexOf("error")+1){
-            alert("invalid username or password")
+            var err = document.getElementById("error-box");
+            var errTag = document.createElement("label");
+            var errMsg = document.createTextNode("Invalid username or password");
+            errTag.appendChild(errMsg);
+            errTag.style.color = "red";
+            err.parentNode.replaceChild(errTag , err);
         }
 
     }
@@ -31,6 +36,7 @@
     <div class="wrapper">
         <form action="/login" method="post" class="form-signin">
             <h3 class="form-signin-heading">Login</h3>
+            <div class="error-handler" id="error-box"></div>
             <input type="text" class="form-control" name="username" autofocus="" required="" placeholder="Username"/>
             <input type="password" class="form-control" name="password" required="" placeholder="Password"/>
             <input type="submit" value="Login" class="btn btn-lg btn-success btn-block" style="margin-top:20px;"/>

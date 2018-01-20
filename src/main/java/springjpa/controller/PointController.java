@@ -1,10 +1,7 @@
 package springjpa.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import springjpa.model.Point;
 import springjpa.repo.PointRepo;
 
@@ -16,36 +13,14 @@ public class PointController {
     PointRepo repository;
 
     @RequestMapping(value = "/point" , method = RequestMethod.POST)
-    public void addPoint(
-            @RequestParam("x") double x ,
-            @RequestParam("y") double y ,
-            @RequestParam("r") double r   ){
-        Point point = new Point( x , y , r);
+    public void addPoint(@RequestBody Point point){
         repository.save(point);
-        System.out.println("xui");
     }
 
-    @RequestMapping("/save")
-    public String process(){
-        repository.save(new Point(1 , 1,  4));
-        repository.save(new Point(1 , -1,  4 ));
-        repository.save(new Point(1 , -1,  4 ));
-        repository.save(new Point(1 , 1,  4 ));
-        return "Save done";
+    @RequestMapping(value = "/point" , method = RequestMethod.GET)
+    public Iterable<Point> pointGet(){
+       return repository.findAll();
     }
 
-    @RequestMapping("/find")
-    public String findAll(){
-        String result = "<html>";
-        for ( Point point : repository.findAll()){
-            result  += "<div>" + point.toString() + "</div>";
-        }
-        return  result + "</html>";
-    }
 
-    @RequestMapping("/clear")
-    public String clear(){
-        repository.deleteAll();
-        return "Delete done";
-    }
 }
