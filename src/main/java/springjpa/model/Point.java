@@ -102,7 +102,7 @@ public class Point implements Serializable{
         return result;
     }
 
-    void inArea(){
+   public void inArea(){
         if ( x >= 0 && x <= r/2 && y <= 0 && y <= r) hit = true;
         else
         if ( x <= 0 && x >= -r && y <=0 && y >= -r &&  x*x+y*y<=r*r ) hit = true;

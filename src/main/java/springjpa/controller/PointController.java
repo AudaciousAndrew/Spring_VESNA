@@ -14,6 +14,7 @@ public class PointController {
 
     @RequestMapping(value = "/point" , method = RequestMethod.POST)
     public void addPoint(@RequestBody Point point){
+        point.inArea();
         repository.save(point);
     }
 
