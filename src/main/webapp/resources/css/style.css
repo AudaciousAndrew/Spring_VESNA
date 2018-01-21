@@ -1,5 +1,6 @@
 .header {
     font-family: "Verdana" , serif;
+    color: black;
     margin-left: 20%;
     margin-top: 15px;
     text-align: center;
@@ -12,6 +13,7 @@
 }
 
 body{
+    font-family: "Verdana" , serif;
     text-align: center;
     margin: 0;
     height: 100%;
@@ -51,8 +53,7 @@ body{
     transition: left 0.3s ease-out; }
 
 .input-range__label {
-    color: #aaaaaa;
-    font-family: "Helvetica Neue", san-serif;
+    color: darkslategray;
     font-size: 0.8rem;
     transform: translateZ(0);
     white-space: nowrap; }
@@ -109,32 +110,32 @@ body{
 .canvasff {
     border: 1px solid;
     height: 350px;
-    width: 350px;
+    width: 25%;
     float: left;
-    margin-right: 50px;
+    margin-right: 7%;
     border: #DCDCDC;
     padding: 20px;
     border-radius: 10px;
-    background: rgba(255, 255, 230, 0.3);
+    background: rgba(255, 255, 230, 0.5);
 }
 
 #myCanvas {
+    margin-top: 4%;
     background: rgba(255, 255, 230, 0.8);
     border: #DCDCDC;
     padding: 2%;
-
 }
 
 .dialog_form{
-    height: 350px;
-    width: 300px;
+    height: 340px;
+    width: 250px;
     border: 1px solid;
     border: #DCDCDC;
     padding: 2%;
     border-radius: 10px;
-    margin-right: 50px;
-    margin-left: 20px;
-    background: rgba(255, 255, 230, 0.3);
+    margin-right: 7%;
+    margin-left: 5%;
+    background: rgba(255, 255, 230, 0.5);
     float: left;
 }
 
@@ -169,17 +170,27 @@ body{
 }
 
 .button_group {
-    background: #FFFAF0 ;
+    background: rgba(255, 255, 230, 0);
+    border: #DCDCDC;
+    border-radius: 10px;
     width: 100%;
     position: relative;
     border-collapse: collapse;
-    border: 1px solid black;
     margin-bottom: 5%;
     margin-top: 3%;
 }
 
+
+.button_group tr:hover {
+    background-color: rgba(255, 255, 230, 0.3);
+}
+
 td {
     text-align: center;
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 230, 0.9);
 }
 
 .resultTable {
@@ -187,17 +198,164 @@ td {
     float: left;
     font-size: 14px;
     border-radius: 10px;
-    width: 400px;
+    background: rgba(255, 255, 230, 0.5);
+    width: 25%;
+    height: 400px;
     border-spacing: 0;
+    padding: 5px;
     text-align: center;
-    overflow-x: auto;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+}
+
+.resultTable::-webkit-scrollbar {
+    width: 8px;
+}
+
+.resultTable::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+.resultTable::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 
 th {
-    background: #BCEBDD;
-    color: white;
-    text-shadow: 0 1px 1px #2D2020;
+    color: black;
     padding: 10px 20px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-radius: 10px;
+}
+
+@media (max-width: 1187px) and (min-width:879px ) {
+    .header {
+        color: darkred;
+    }
+
+    .dialog_form{
+        height: 350px;
+        width: 30%;
+        border: 1px solid;
+        border: #DCDCDC;
+        padding: 2%;
+        border-radius: 10px;
+        margin-right: 10%;
+        margin-left: 5%;
+        background: rgba(255, 255, 230, 0.3);
+        float: left;
+    }
+
+    .canvasff {
+        border: 1px solid;
+        height: 350px;
+        width: 40%;
+        float: right;
+        margin-right: 5%;
+        border: #DCDCDC;
+        padding: 20px;
+        border-radius: 10px;
+        background: rgba(255, 255, 230, 0.3);
+    }
+
+    .resultTable {
+        flex: 2;
+        float: bottom;
+        margin-top: 20px;
+        font-size: 14px;
+        border-radius: 10px;
+        background: rgba(255, 255, 230, 0.7);
+        width: 90%;
+        border-spacing: 0;
+        padding: 5px;
+        text-align: center;
+        overflow-y: auto;
+        margin-left: 5%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 878px) {
+
+    .header {
+        color: darkblue;
+        width: 90%;
+        font-family: "Verdana" , serif;
+        margin-left: 5%;
+    }
+
+    .dialog_form{
+        height: 450px;
+        width: 72%;
+        border: 1px solid;
+        border: #DCDCDC;
+        padding: 2%;
+        border-radius: 10px;
+        margin-left: 13%;
+        background: rgba(255, 255, 230, 0.3);
+    }
+
+    .canvasff {
+        border: 1px solid;
+        margin-top: 10%;
+        height: 350px;
+        width: 70%;
+        margin-left: 13%;
+        border: #DCDCDC;
+        border-radius: 10px;
+        background: rgba(255, 255, 230, 0.3);
+    }
+
+    .resultTable {
+        flex: 2;
+        margin-top: 10%;
+        font-size: 14px;
+        border-radius: 10px;
+        background: rgba(255, 255, 230, 0.7);
+        width: 75%;
+        border-spacing: 0;
+        padding: 5px;
+        text-align: center;
+        overflow-y: auto;
+        margin-left: 13%;
+    }
+
+    .ui-button {
+
+        margin-top: 5%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 460px){
+
+    .header {
+        color: deeppink;
+        width: 90%;
+        font-family: "Verdana" , serif;
+        margin-left: 5%;
+    }
+
+    #myCanvas {
+        background: rgba(255, 255, 230, 0.8);
+        border: #DCDCDC;
+        padding: 2%;
+        width: 80%;
+        height: 80%;
+    }
 }
 
 
