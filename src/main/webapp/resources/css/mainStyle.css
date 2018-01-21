@@ -1,6 +1,6 @@
 .header {
     font-family: "Verdana" , serif;
-    color: deeppink;
+    color: black;
     margin-left: 20%;
     margin-top: 15px;
     text-align: center;
@@ -9,12 +9,28 @@
     border: #DCDCDC;
     border-radius: 10px;
     background: rgba(255, 255, 230, 0.3);
-    margin-bottom: 100px;
 }
 
-#button {
-    color: red;
-    width: 500px;
+#fieldToShow{
+    height: auto;
+}
+
+.button {
+    margin-bottom: 20px;
+    width: 10%;
+    height: 30px;
+    color: white;
+    border-width: 2px 0;
+    border-style: solid none;
+    border-color: orangered;
+    border-radius: 6px;
+    background: orangered;
+    transition: 0.2s;
+
+}
+.button:hover {
+    background: red;
+    border-color: red;
 }
 
 body{
@@ -146,14 +162,12 @@ body{
 
 .ui-button {
     display: inline-block;
-    padding: .25em .5em;
     width: 60%;
     height: 15%;
     position: relative;
     margin-left: 20%;
     margin-right: 20%;
     margin-top: 10%;
-    display: inline-block;
     color: white;
     text-decoration: none;
     padding: .5em 2em;
@@ -291,6 +305,9 @@ th {
 
 @media (max-width: 878px) {
 
+    .button {
+        width: 20%;
+    }
     .header {
         color: darkblue;
         width: 90%;
